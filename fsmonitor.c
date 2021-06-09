@@ -293,10 +293,9 @@ void refresh_fsmonitor(struct index_state *istate)
 	trace_printf_key(&trace_fsmonitor, "refresh fsmonitor");
 
 	if (fsm_mode == FSMONITOR_MODE_IPC) {
-		query_success = !fsmonitor_ipc__send_query(
-			istate->fsmonitor_last_update ?
-			istate->fsmonitor_last_update : "builtin:fake",
-			&query_result);
+		query_success = istate->fsmonitor_last_update &&
+			!fsmonitor_ipc__send_query(istate->fsmonitor_last_update,
+						   &query_result);
 		if (query_success) {
 			/*
 			 * The response contains a series of nul terminated
