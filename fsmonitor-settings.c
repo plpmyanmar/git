@@ -90,7 +90,8 @@ static int check_for_ipc(struct repository *r)
 {
 	int value;
 
-	if (!repo_config_get_bool(r, "core.usebuiltinfsmonitor", &value) &&
+	if (!git_config_get_virtualfilesystem() &&
+	    !repo_config_get_bool(r, "core.usebuiltinfsmonitor", &value) &&
 	    value) {
 		fsm_settings__set_ipc(r);
 		return 1;
