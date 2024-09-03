@@ -141,7 +141,7 @@ jobs:
           flavor: build-installers
       - name: Download bundle-artifacts
         if: env.SKIP != 'true'
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4.1.7
         with:
           name: bundle-artifacts
           path: bundle-artifacts
@@ -256,7 +256,7 @@ jobs:
           git config --global user.email "$USER_EMAIL"
       - name: Download bundle-artifacts
         if: env.SKIP != 'true'
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4.1.7
         with:
           name: bundle-artifacts
           path: bundle-artifacts
@@ -358,13 +358,13 @@ jobs:
           esac
       - name: Download pkg-${{matrix.arch.name}}
         if: env.SKIP != 'true'
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4.1.7
         with:
           name: pkg-${{matrix.arch.name}}
           path: pkg-${{matrix.arch.name}}
       - name: Download bundle-artifacts
         if: env.SKIP != 'true'
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4.1.7
         with:
           name: bundle-artifacts
           path: bundle-artifacts
@@ -379,7 +379,7 @@ jobs:
           architecture: i686
       - name: Download arm64 artifact
         if: env.SKIP != 'true' && matrix.arch.arm64 == true
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4.1.7
         with:
           name: arm64-artifacts
           path: ${{github.workspace}}/arm64
@@ -474,13 +474,13 @@ jobs:
           esac
       - name: Download pkg-x86_64
         if: env.SKIP != 'true'
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4.1.7
         with:
           name: pkg-x86_64
           path: pkg-x86_64
       - name: Download bundle-artifacts
         if: env.SKIP != 'true'
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4.1.7
         with:
           name: bundle-artifacts
           path: bundle-artifacts
