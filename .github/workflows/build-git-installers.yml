@@ -160,7 +160,7 @@ jobs:
       fail-fast: false
     steps:
       - name: Download pkg-x86_64
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: pkg-x86_64
           path: pkg-x86_64
@@ -461,7 +461,7 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v2
       - name: Download unsigned packages
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: deb-package-unsigned
           path: ${{ env.ARTIFACTS_DIR }}/unsigned
@@ -498,29 +498,29 @@ jobs:
         needs.windows_artifacts.result == 'success')
     steps:
       - name: Download Windows portable installer
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: win-portable-x86_64
           path: win-portable-x86_64
       - name: Download Windows x86_64 installer
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: win-installer-x86_64
           path: win-installer-x86_64
       - name: Download Mac installer
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: osx-installer
           path: osx-installer
       - name: Download Ubuntu package (signed)
         if: needs.prereqs.outputs.deb_signable == 'true'
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: deb-package-signed
           path: deb-package
       - name: Download Ubuntu package (unsigned)
         if: needs.prereqs.outputs.deb_signable != 'true'
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: deb-package-unsigned
           path: deb-package
